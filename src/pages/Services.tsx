@@ -3,77 +3,171 @@ import React from 'react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import ServiceCard from '@/components/services/ServiceCard';
+import { motion } from 'framer-motion';
+import { 
+  FileText, 
+  BarChart, 
+  Phone, 
+  Users, 
+  ServerCog,
+} from 'lucide-react';
 
 const Services = () => {
   const servicesData = [
     {
       title: 'Data Processing',
       description: 'We specialize in data entry services, document scanning, data mining, and cleaning. We ensure that your project becomes less complicated for you. We handle all our projects with high accuracy, utmost data security, and confidentiality.',
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-        </svg>
-      ),
+      icon: <FileText className="w-10 h-10 text-wbo-blue" />,
+      color: 'from-blue-50 to-blue-100',
+      iconBg: 'bg-blue-100'
     },
     {
       title: 'Data Analysis',
       description: 'Data and document processing captures raw data. We can convert, analyze, and present data for management consideration.',
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-        </svg>
-      ),
+      icon: <BarChart className="w-10 h-10 text-wbo-teal" />,
+      color: 'from-teal-50 to-teal-100',
+      iconBg: 'bg-teal-100'
     },
     {
       title: 'Contact Center',
-      description: 'We provide inbound and outbound contact center services covering calls.',
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-        </svg>
-      ),
+      description: 'We provide inbound and outbound contact center services covering calls, emails, chats, and social media to ensure an omnichannel customer experience.',
+      icon: <Phone className="w-10 h-10 text-wbo-purple" />,
+      color: 'from-purple-50 to-purple-100',
+      iconBg: 'bg-purple-100'
     },
     {
       title: 'HR Outsourcing',
       description: 'HR outsourcing services allow your business to outsource a range of tasks from benefit administration and training to recruiting, hiring, and payroll administration. We are ideal for companies of all sizes who do not have the resources required to expand an in-house HR team or lack the expertise.',
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-        </svg>
-      ),
+      icon: <Users className="w-10 h-10 text-wbo-orange" />,
+      color: 'from-orange-50 to-orange-100',
+      iconBg: 'bg-orange-100'
     },
     {
       title: 'IT Solutions',
       description: 'With our IT support solutions, you will gain access to multi-level solutions and services ranging from web development, mobile applications development, server data center management and maintenance, and web hosting.',
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-        </svg>
-      ),
+      icon: <ServerCog className="w-10 h-10 text-wbo-indigo" />,
+      color: 'from-indigo-50 to-indigo-100',
+      iconBg: 'bg-indigo-100'
     },
   ];
 
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+  };
+
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-wbo-gray">
       <Navbar />
       
-      <div className="pt-24 pb-16 bg-wbo-blue text-white">
-        <div className="container-custom">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-center">Our Services</h1>
-          <div className="w-24 h-1 bg-white mx-auto"></div>
+      {/* Hero Section */}
+      <div className="pt-24 pb-16 bg-gradient-blue text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute w-64 h-64 rounded-full bg-white/30 blur-3xl -top-10 -right-10"></div>
+          <div className="absolute w-64 h-64 rounded-full bg-white/20 blur-3xl -bottom-10 -left-10"></div>
+        </div>
+
+        <div className="container-custom relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center"
+          >
+            <h1 className="font-['Playfair_Display'] text-3xl md:text-5xl font-bold mb-6">Our Services</h1>
+            <div className="w-24 h-1 bg-wbo-accent mx-auto mb-6"></div>
+            <p className="max-w-2xl mx-auto text-lg text-blue-100">
+              We deliver exceptional business process outsourcing solutions tailored to your unique needs
+            </p>
+          </motion.div>
         </div>
       </div>
       
-      <section className="section-padding bg-white">
-        <div className="container-custom">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* Services Grid Section */}
+      <section className="py-16 md:py-24 relative">
+        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+        
+        <div className="container-custom relative">
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
             {servicesData.map((service, index) => (
-              <ServiceCard
+              <motion.div
                 key={index}
-                title={service.title}
-                description={service.description}
-                icon={service.icon}
-              />
+                variants={itemVariants}
+                className="h-full"
+              >
+                <ServiceCard
+                  title={service.title}
+                  description={service.description}
+                  icon={service.icon}
+                  className={`bg-gradient-to-br ${service.color} h-full card-hover`}
+                  iconClassName={`${service.iconBg}`}
+                />
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section className="bg-wbo-darkblue text-white py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-dots-pattern opacity-5"></div>
+        <div className="container-custom relative z-10">
+          <motion.div 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="font-['Playfair_Display'] text-3xl md:text-4xl font-bold mb-4">Our Service Process</h2>
+            <div className="w-24 h-1 bg-wbo-accent mx-auto mb-6"></div>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {[
+              { step: "01", title: "Consultation", desc: "We understand your goals and challenges" },
+              { step: "02", title: "Strategy", desc: "We develop a customized solution for your needs" },
+              { step: "03", title: "Implementation", desc: "We deploy resources and technology to deliver results" },
+              { step: "04", title: "Optimization", desc: "We continuously improve and refine the process" },
+            ].map((item, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: idx * 0.2 }}
+                viewport={{ once: true }}
+                className="relative"
+              >
+                <div className="absolute -left-4 -top-4 text-5xl font-bold text-white/10">{item.step}</div>
+                <div className="bg-white/5 backdrop-blur-sm p-6 rounded-lg h-full">
+                  <h3 className="text-2xl font-bold mb-3 text-wbo-accent">{item.title}</h3>
+                  <p className="text-blue-100">{item.desc}</p>
+                </div>
+                {idx < 3 && (
+                  <div className="hidden md:block absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                )}
+              </motion.div>
             ))}
           </div>
         </div>
