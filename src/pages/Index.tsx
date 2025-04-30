@@ -19,11 +19,11 @@ const Index = () => {
       <Navbar />
       <Hero />
       <ClientLogos />
-      <ServicesOverview />
-      <BenefitsSection />
       <GlobalPresence />
-      <Statistics />
       <Leadership />
+      <BenefitsSection />
+      <ServicesOverview />
+      <Statistics />
       <CoreValues />
       <Testimonials />
       <CallCenterSolutions />
