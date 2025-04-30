@@ -6,6 +6,8 @@ import CoreValues from '@/components/home/CoreValues';
 import CallCenterSolutions from '@/components/home/CallCenterSolutions';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+import Statistics from '@/components/home/Statistics';
+import Testimonials from '@/components/home/Testimonials';
 
 const Index = () => {
   return (
@@ -13,7 +15,9 @@ const Index = () => {
       <Navbar />
       <Hero />
       <ServicesOverview />
+      <Statistics />
       <CoreValues />
+      <Testimonials />
       <CallCenterSolutions />
       <Footer />
     </div>

@@ -2,6 +2,7 @@
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const servicesData = [
   {
@@ -57,34 +58,87 @@ const servicesData = [
 ];
 
 const ServicesOverview = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 }
+  };
+
   return (
-    <section className="section-padding bg-white">
-      <div className="container-custom">
-        <div className="text-center mb-12">
+    <section className="section-padding bg-white relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
+        <div className="absolute inset-0" style={{ 
+          backgroundImage: 'radial-gradient(circle at 25px 25px, #000 2%, transparent 0%), radial-gradient(circle at 75px 75px, #000 2%, transparent 0%)',
+          backgroundSize: '100px 100px'
+        }}></div>
+      </div>
+      
+      <div className="container-custom relative">
+        <motion.div 
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
           <h2 className="heading-2 mb-4">Outsourcing Services</h2>
-          <div className="w-24 h-1 bg-wbo-blue mx-auto"></div>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <motion.div 
+            className="w-24 h-1 bg-wbo-blue mx-auto"
+            initial={{ width: 0 }}
+            whileInView={{ width: 96 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true }}
+          ></motion.div>
+        </motion.div>
+
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
           {servicesData.map((service, index) => (
-            <Link to={service.link} key={index} className="group">
-              <Card className="h-full transition-all duration-300 hover:shadow-lg hover:border-wbo-blue/50 overflow-hidden">
-                <CardHeader>
-                  <div className="text-wbo-blue mb-4 group-hover:text-wbo-accent transition-colors duration-300">
-                    {service.icon}
-                  </div>
-                  <CardTitle className="text-xl group-hover:text-wbo-blue transition-colors duration-300">
-                    {service.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-gray-600">
-                    {service.description}
-                  </CardDescription>
-                </CardContent>
-              </Card>
-            </Link>
+            <motion.div 
+              key={index}
+              variants={itemVariants}
+              transition={{ duration: 0.5 }}
+            >
+              <Link to={service.link} className="group">
+                <Card className="h-full transition-all duration-300 hover:shadow-lg hover:border-wbo-blue/50 overflow-hidden">
+                  <CardHeader>
+                    <motion.div 
+                      className="text-wbo-blue mb-4 group-hover:text-wbo-accent transition-colors duration-300"
+                      whileHover={{ scale: 1.1, rotate: [0, 5, -5, 0] }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      {service.icon}
+                    </motion.div>
+                    <CardTitle className="text-xl group-hover:text-wbo-blue transition-colors duration-300">
+                      {service.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <CardDescription className="text-gray-600">
+                      {service.description}
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+              </Link>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
