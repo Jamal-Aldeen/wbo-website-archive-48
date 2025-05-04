@@ -40,17 +40,8 @@ const Navbar = () => {
             <Link to="/" className="font-medium hover:text-wbo-blue transition">
               Home
             </Link>
-            <Link to="/careers" className="font-medium hover:text-wbo-blue transition">
-              Careers
-            </Link>
-            <Link to="/contact" className="font-medium hover:text-wbo-blue transition">
-              Contact Us
-            </Link>
             <Link to="/why-outsource" className="font-medium hover:text-wbo-blue transition">
               Why Outsource?
-            </Link>
-            <Link to="/partners" className="font-medium hover:text-wbo-blue transition">
-              Partners & Clients
             </Link>
             <Link to="/services" className="font-medium hover:text-wbo-blue transition">
               Services
@@ -58,11 +49,24 @@ const Navbar = () => {
             <Link to="/about" className="font-medium hover:text-wbo-blue transition">
               About Us
             </Link>
+            {/* <Link to="/contact" className="font-medium hover:text-wbo-blue transition">
+              Contact Us
+            </Link> */}
+            <Link to="/partners" className="font-medium hover:text-wbo-blue transition">
+              Partners & Clients
+            </Link>
+            <Link to="/careers" className="font-medium hover:text-wbo-blue transition">
+              Careers
+            </Link>
           </nav>
 
           {/* Contact Button (Desktop) */}
           <div className="hidden md:block">
-            <Button className="bg-wbo-blue hover:bg-wbo-darkblue">Contact Us</Button>
+            <Button className="bg-wbo-blue hover:bg-wbo-darkblue">
+              <Link to="/contact" className="font-medium text-white transition">
+              Contact Us
+              </Link>
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
