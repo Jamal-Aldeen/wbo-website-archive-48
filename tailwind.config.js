@@ -14,6 +14,7 @@ export default {
           'wbo-lightblue': '#8FC1E3',
           'wbo-offwhite': '#F7F9FB',
           'wbo-accent': '#31708E',  // Using darkblue as accent color
+          'wbo-mustard': '#C5172E', // Adding new mustard accent color
           'background': '#FFFFFF',  // Adding explicit background color
           'foreground': '#111827',  // Adding explicit foreground color for text
         }

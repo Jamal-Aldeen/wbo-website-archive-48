@@ -66,6 +66,7 @@ export default {
 					blue: '#0A4D98',
 					lightblue: '#2F7ABF',
 					darkblue: '#063366',
+					mustard: '#C5172E', // Added new mustard color
 					gray: '#F5F5F5',
 					accent: '#47B5FF',
 				}

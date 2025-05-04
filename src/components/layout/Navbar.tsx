@@ -55,14 +55,14 @@ const Navbar = () => {
             <Link to="/partners" className="font-medium hover:text-wbo-blue transition">
               Partners & Clients
             </Link>
-            <Link to="/careers" className="font-medium hover:text-wbo-blue transition">
+            <Link to="/careers" className="font-medium hover:text-wbo-mustard transition">
               Careers
             </Link>
           </nav>
 
           {/* Contact Button (Desktop) */}
           <div className="hidden md:block">
-            <Button className="bg-wbo-blue hover:bg-wbo-darkblue">
+            <Button className="bg-wbo-mustard hover:bg-wbo-darkblue">
               <Link to="/contact" className="font-medium text-white transition">
               Contact Us
               </Link>

@@ -47,7 +47,7 @@ const GlobalPresence = () => {
             viewport={{ once: true }}
             className="lg:w-1/3"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-indigo-900 leading-tight">
+            <h2 className="text-3xl md:text-4xl font-bold text-wbo-mustard leading-tight">
               A global industry leader who thinks local and acts global to orchestrate outcomes
             </h2>
           </motion.div>
