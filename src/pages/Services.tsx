@@ -1,10 +1,29 @@
-
-import React from 'react';
+import React, { useRef } from 'react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import ServiceCard from '@/components/services/ServiceCard';
+import { motion, useInView } from 'framer-motion';
 
 const Services = () => {
+  const headerRef = useRef(null);
+  const servicesRef = useRef(null);
+
+  const isHeaderInView = useInView(headerRef, { once: false, amount: 0.3 });
+  const isServicesInView = useInView(servicesRef, { once: false, amount: 0.3 });
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.2 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
+
   const servicesData = [
     {
       title: 'Data Processing',
@@ -56,29 +75,40 @@ const Services = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
-      
-      <div className="pt-24 pb-16 bg-wbo-blue text-white">
+
+      <motion.div
+        ref={headerRef}
+        variants={containerVariants}
+        initial="hidden"
+        animate={isHeaderInView ? 'visible' : 'hidden'}
+        className="pt-24 pb-16 bg-wbo-blue text-white"
+      >
         <div className="container-custom">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-center">Our Services</h1>
-          <div className="w-24 h-1 bg-white mx-auto"></div>
+          <motion.h1 variants={itemVariants} className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-center">
+            Our Services
+          </motion.h1>
+          <motion.div variants={itemVariants} className="w-24 h-1 bg-white mx-auto"></motion.div>
         </div>
-      </div>
-      
+      </motion.div>
+
       <section className="section-padding bg-white">
         <div className="container-custom">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <motion.div
+            ref={servicesRef}
+            variants={containerVariants}
+            initial="hidden"
+            animate={isServicesInView ? 'visible' : 'hidden'}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
             {servicesData.map((service, index) => (
-              <ServiceCard
-                key={index}
-                title={service.title}
-                description={service.description}
-                icon={service.icon}
-              />
+              <motion.div key={index} variants={itemVariants}>
+                <ServiceCard title={service.title} description={service.description} icon={service.icon} />
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
-      
+
       <Footer />
     </div>
   );
