@@ -15,7 +15,7 @@ const clientLogos = [
 
 const ClientLogos = () => {
   return (
-    <section className="bg-white py-16">
+    <section className="bg-wbo-offwhite py-16">
       <div className="container-custom">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -24,7 +24,7 @@ const ClientLogos = () => {
           viewport={{ once: true }}
           className="text-center mb-10"
         >
-          <h2 className="text-2xl font-bold text-red-500">OUR CLIENTS</h2>
+          <h2 className="text-2xl font-bold text-wbo-darkblue">OUR CLIENTS</h2>
         </motion.div>
         
         <motion.div 
