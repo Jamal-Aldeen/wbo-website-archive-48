@@ -28,8 +28,8 @@
     --accent: 200 36% 37%;  /* #31708E - wbo-darkblue */
     --accent-foreground: 222.2 47.4% 11.2%;
 
-    --mustard: 210 40% 68%;  /* #E9B949 - wbo-mustard */
-    --mustard-foreground: 210 40% 98%;
+    --green: 180 100% 20%;/* #E9B949 - wbo-green */
+    --green-foreground: 210 40% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
@@ -93,9 +93,9 @@
   @apply bg-gradient-to-r from-wbo-lightblue to-wbo-offwhite;
 }
 
-/* New gradient with mustard color */
-.bg-wbo-gradient-mustard {
-  @apply bg-gradient-to-r from-wbo-blue to-wbo-mustard;
+/* New gradient with green color */
+.bg-wbo-gradient-green {
+  @apply bg-gradient-to-r from-wbo-blue to-wbo-green;
 }
 
 /* Animation for fade-in effect */
