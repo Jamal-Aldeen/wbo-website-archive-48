@@ -78,16 +78,17 @@ const Footer = () => {
 
           {/* Mailing List */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Subscribe</h3>
-            <p className="mb-4">Subscribe to our mailing list for offers, news updates, and more!</p>
-            <div className="space-y-3">
+            {/* <h3 className="text-xl font-bold mb-4">Subscribe</h3>
+            <p className="mb-4">Subscribe to our mailing list for offers, news updates, and more!</p> */}
+            <img src="Global_bridge.svg" alt="WorldBridge Outsourcing Solutions" className="mb-4" />
+            {/* <div className="space-y-3">
               <Input 
                 type="email" 
                 placeholder="Your email address" 
                 className="bg-white/10 border-white/20 text-white placeholder:text-white/60"
-              />
+              /> 
               <Button className="w-full bg-wbo-accent hover:bg-wbo-blue">Subscribe</Button>
-            </div>
+            </div>*/}
           </div>
         </div>
 
@@ -106,6 +107,14 @@ const Footer = () => {
               <p className="text-sm">Street 41, Sangkat Tonle Bassac, Khan Chamkar Morn, Phnom Penh, Cambodia</p>
               <p className="text-sm">Email: info@wboutsourcing.com</p>
               <p className="text-sm">Phone: +855(23) 987 252</p>
+              <div className="space-y-3">
+              {/* <Input 
+                type="email" 
+                placeholder="Your email address" 
+                className="bg-white/10 border-white/20 text-white placeholder:text-white/60"
+              /> */}
+              <Button className="w-full bg-wbo-accent hover:bg-wbo-blue">Subscribe</Button>
+            </div>
             </div>
           </div>
         </div>

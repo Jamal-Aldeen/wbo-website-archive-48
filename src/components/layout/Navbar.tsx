@@ -32,39 +32,47 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <span className="text-xl font-bold text-wbo-blue">WBO</span>
+            {/* <span className="text-xl font-bold text-wbo-blue">WBO</span> */}
+            <img
+              src="Global_bridge_Icon.svg"
+              alt="WBO Logo"
+              className="h-8 w-auto"></img>
+            <img
+              src="GB.svg"
+              alt="WBO Logo"
+              className="h-5 w-auto"></img>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-6">
-            <Link to="/" className="font-medium hover:text-wbo-blue transition">
+            <Link to="/" className="font-medium hover:text-wbo-darkblue transition">
               Home
             </Link>
-            <Link to="/why-outsource" className="font-medium hover:text-wbo-blue transition">
+            <Link to="/why-outsource" className="font-medium hover:text-wbo-darkblue transition">
               Why Outsource?
             </Link>
-            <Link to="/services" className="font-medium hover:text-wbo-blue transition">
+            <Link to="/services" className="font-medium hover:text-wbo-darkblue transition">
               Services
             </Link>
-            <Link to="/about" className="font-medium hover:text-wbo-blue transition">
+            <Link to="/about" className="font-medium hover:text-wbo-darkblue transition">
               About Us
             </Link>
             {/* <Link to="/contact" className="font-medium hover:text-wbo-blue transition">
               Contact Us
             </Link> */}
-            <Link to="/partners" className="font-medium hover:text-wbo-blue transition">
+            <Link to="/partners" className="font-medium hover:text-wbo-darkblue transition">
               Partners & Clients
             </Link>
-            <Link to="/careers" className="font-medium hover:text-wbo-mustard transition">
+            <Link to="/careers" className="font-medium hover:text-wbo-darkblue transition">
               Careers
             </Link>
           </nav>
 
           {/* Contact Button (Desktop) */}
           <div className="hidden md:block">
-            <Button className="bg-wbo-mustard hover:bg-wbo-darkblue">
+            <Button className="bg-wbo-green hover:bg-wbo-darkteal">
               <Link to="/contact" className="font-medium text-white transition">
-              Contact Us
+                Contact Us
               </Link>
             </Button>
           </div>
