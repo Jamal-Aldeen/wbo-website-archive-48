@@ -8,15 +8,15 @@ import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext
 const leadershipTeam = [
   {
     id: 1,
-    image: 'public/lovable-uploads/608e9585-2f5d-4bb6-b524-e8e5da70a798.png',
+    image: 'https://adaptcommunitynetwork.org/wp-content/uploads/2023/09/person-placeholder.jpg',
   },
   {
     id: 2,
-    image: 'public/lovable-uploads/de0ab30f-e0d8-49f2-a0dc-3bf3a9c19ffa.png',
+    image: 'https://adaptcommunitynetwork.org/wp-content/uploads/2023/09/person-placeholder.jpg',
   },
   {
     id: 3,
-    image: 'public/lovable-uploads/9a72b338-5d68-48ea-8ad5-fc8eba7f48d2.png',
+    image: 'https://adaptcommunitynetwork.org/wp-content/uploads/2023/09/person-placeholder.jpg',
   },
 ];
 
