@@ -113,3 +113,24 @@
 .animate-fadeIn {
   animation: fadeIn 0.8s ease forwards;
 }
+
+.nav-link {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px; /* Adjust based on your design */
+  left: 50%;
+  background-color: #003333; /* Underline color */
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+  left: 0;
+}

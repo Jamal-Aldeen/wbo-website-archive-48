@@ -1,9 +1,8 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 
-const Navbar = () => {
+const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -27,43 +26,37 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'}`}>
+    <header
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'
+      }`}
+    >
       <div className="container-custom">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            {/* <span className="text-xl font-bold text-wbo-blue">WBO</span> */}
-            <img
-              src="Global_bridge_Icon.svg"
-              alt="WBO Logo"
-              className="h-8 w-auto"></img>
-            <img
-              src="GB.svg"
-              alt="WBO Logo"
-              className="h-5 w-auto"></img>
+            <img src="Global_bridge_Icon.svg" alt="WBO Logo" className="h-8 w-auto" />
+            <img src="GB.svg" alt="WBO Logo" className="h-5 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-6">
-            <Link to="/" className="font-medium hover:text-wbo-darkblue transition">
+            <Link to="/" className="font-medium nav-link">
               Home
             </Link>
-            <Link to="/why-outsource" className="font-medium hover:text-wbo-darkblue transition">
+            <Link to="/why-outsource" className="font-medium nav-link">
               Why Outsource?
             </Link>
-            <Link to="/services" className="font-medium hover:text-wbo-darkblue transition">
+            <Link to="/services" className="font-medium nav-link">
               Services
             </Link>
-            <Link to="/about" className="font-medium hover:text-wbo-darkblue transition">
+            <Link to="/about" className="font-medium nav-link">
               About Us
             </Link>
-            {/* <Link to="/contact" className="font-medium hover:text-wbo-blue transition">
-              Contact Us
-            </Link> */}
-            <Link to="/partners" className="font-medium hover:text-wbo-darkblue transition">
+            <Link to="/partners" className="font-medium nav-link">
               Partners & Clients
             </Link>
-            <Link to="/careers" className="font-medium hover:text-wbo-darkblue transition">
+            <Link to="/careers" className="font-medium nav-link">
               Careers
             </Link>
           </nav>
@@ -79,7 +72,7 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-wbo-blue focus:outline-none"
+            className="md:hidden text-wbo-green focus:outline-none z-60"
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
@@ -106,35 +99,52 @@ const Navbar = () => {
             )}
           </button>
         </div>
-
-        {/* Mobile Navigation */}
-        {isOpen && (
-          <nav className="md:hidden mt-4 space-y-3 pb-3">
-            <Link to="/" className="block font-medium hover:text-wbo-blue transition" onClick={toggleMenu}>
-              Home
-            </Link>
-            <Link to="/careers" className="block font-medium hover:text-wbo-blue transition" onClick={toggleMenu}>
-              Careers
-            </Link>
-            <Link to="/contact" className="block font-medium hover:text-wbo-blue transition" onClick={toggleMenu}>
-              Contact Us
-            </Link>
-            <Link to="/why-outsource" className="block font-medium hover:text-wbo-blue transition" onClick={toggleMenu}>
-              Why Outsource?
-            </Link>
-            <Link to="/partners" className="block font-medium hover:text-wbo-blue transition" onClick={toggleMenu}>
-              Partners & Clients
-            </Link>
-            <Link to="/services" className="block font-medium hover:text-wbo-blue transition" onClick={toggleMenu}>
-              Services
-            </Link>
-            <Link to="/about" className="block font-medium hover:text-wbo-blue transition" onClick={toggleMenu}>
-              About Us
-            </Link>
-            <Button className="w-full bg-wbo-blue hover:bg-wbo-darkblue">Contact Us</Button>
-          </nav>
-        )}
       </div>
+
+      {/* Mobile Navigation */}
+      {isOpen && (
+        <nav className="md:hidden fixed top-0 left-0 bg-wbo-lightblue shadow-md w-full shadow-md px-4 py-6 space-y-3 z-50">
+          <button
+            className="absolute top-4 right-4 text-wbo-green focus:outline-none"
+            onClick={toggleMenu}
+            aria-label="Close menu"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+          <Link to="/" className="block font-medium nav-link" onClick={toggleMenu}>
+            Home
+          </Link>
+          <Link to="/careers" className="block font-medium nav-link" onClick={toggleMenu}>
+            Careers
+          </Link>
+          <Link to="/contact" className="block font-medium nav-link" onClick={toggleMenu}>
+            Contact Us
+          </Link>
+          <Link to="/why-outsource" className="block font-medium nav-link" onClick={toggleMenu}>
+            Why Outsource?
+          </Link>
+          <Link to="/partners" className="block font-medium nav-link" onClick={toggleMenu}>
+            Partners & Clients
+          </Link>
+          <Link to="/services" className="block font-medium nav-link" onClick={toggleMenu}>
+            Services
+          </Link>
+          <Link to="/about" className="block font-medium nav-link" onClick={toggleMenu}>
+            About Us
+          </Link>
+          <Button className="w-full bg-wbo-blue hover:bg-wbo-darkblue" onClick={toggleMenu}>
+            Contact Us
+          </Button>
+        </nav>
+      )}
     </header>
   );
 };
