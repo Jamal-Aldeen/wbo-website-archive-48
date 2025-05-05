@@ -11,12 +11,19 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react(),
-    mode === 'development' &&
-    componentTagger(),
+    mode === "development" && componentTagger(),
   ].filter(Boolean),
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
+  },
+  base: "/wbo-website-archive-48/", // Added for GitHub Pages subdirectory
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+    // Ensure public files are copied
+   // Ensure output directory matches your deploy script
+    chunkSizeWarningLimit: 600, // Optional: Suppress chunk size warning
   },
 }));

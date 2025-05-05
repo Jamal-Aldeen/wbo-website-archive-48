@@ -20,7 +20,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename="/wbo-website-archive-48">
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
