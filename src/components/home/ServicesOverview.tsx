@@ -79,7 +79,7 @@ const ServicesOverview = () => {
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
         <div className="absolute inset-0" style={{ 
-          backgroundImage: 'radial-gradient(circle at 25px 25px, #000 2%, transparent 0%), radial-gradient(circle at 75px 75px, #000 2%, transparent 0%)',
+          backgroundImage: 'radial-gradient(circle at 25px 25px, #31708E 2%, transparent 0%), radial-gradient(circle at 75px 75px, #31708E 2%, transparent 0%)',
           backgroundSize: '100px 100px'
         }}></div>
       </div>
@@ -116,7 +116,7 @@ const ServicesOverview = () => {
               transition={{ duration: 0.5 }}
             >
               <Link to={service.link} className="group">
-                <Card className="h-full transition-all duration-300 hover:shadow-lg hover:border-wbo-blue/50 overflow-hidden">
+                <Card className="h-full transition-all duration-300 hover:shadow-lg hover:border-wbo-blue/50 overflow-hidden bg-white">
                   <CardHeader>
                     <motion.div 
                       className="text-wbo-blue mb-4 group-hover:text-wbo-accent transition-colors duration-300"

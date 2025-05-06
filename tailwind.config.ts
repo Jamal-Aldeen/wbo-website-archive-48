@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -23,8 +22,8 @@ export default {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
-				background: 'hsl(var(--background))',
-				foreground: 'hsl(var(--foreground))',
+				background: '#FFFFFF',  // Changed to explicit color value
+				foreground: '#111827',  // Changed to explicit color value for text
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'
@@ -67,6 +66,7 @@ export default {
 					blue: '#0A4D98',
 					lightblue: '#2F7ABF',
 					darkblue: '#063366',
+					green: '#003333', // Added new green color
 					gray: '#F5F5F5',
 					accent: '#47B5FF',
 				}

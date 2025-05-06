@@ -20,7 +20,7 @@ const Hero = () => {
             alt="BPO Professional" 
             className="w-full h-[500px] lg:h-[600px] object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-wbo-darkblue/60 to-transparent"></div>
         </motion.div>
         
         {/* Right content section */}
@@ -43,7 +43,7 @@ const Hero = () => {
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
             <Link to="/contact">
-              <Button className="bg-red-500 hover:bg-red-600 text-white rounded-full px-8 py-3 text-lg">
+              <Button className="bg-wbo-accent hover:bg-wbo-darkblue text-white rounded-full px-8 py-3 text-lg">
                 REIMAGINE YOUR CX
               </Button>
             </Link>

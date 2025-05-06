@@ -1,49 +1,91 @@
-
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import TeamMember from '@/components/about/TeamMember';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import ImageGallery from '@/components/about/ImageGallery';
 import AboutStats from '@/components/about/AboutStats';
 
 const About = () => {
-  const scrollRef = useRef<HTMLDivElement>(null);
+  const headerRef = useRef(null);
+  const missionVisionRef = useRef(null);
+  const tabsRef = useRef(null);
+  const coreValuesRef = useRef(null);
+  const leadershipRef = useRef(null);
+  const facilitiesRef = useRef(null);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollElements = document.querySelectorAll('.scroll-reveal');
-      scrollElements.forEach((element) => {
-        const rect = element.getBoundingClientRect();
-        const isVisible = rect.top <= window.innerHeight * 0.8;
-        
-        if (isVisible) {
-          element.classList.add('animate-fadeIn');
-        }
-      });
-    };
+  const isHeaderInView = useInView(headerRef, { once: false, amount: 0.3 });
+  const isMissionVisionInView = useInView(missionVisionRef, { once: false, amount: 0.3 });
+  const isTabsInView = useInView(tabsRef, { once: false, amount: 0.3 });
+  const isCoreValuesInView = useInView(coreValuesRef, { once: false, amount: 0.3 });
+  const isLeadershipInView = useInView(leadershipRef, { once: false, amount: 0.3 });
+  const isFacilitiesInView = useInView(facilitiesRef, { once: false, amount: 0.3 });
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Check on mount
-    
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.2 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
+
+  const coreValues = [
+    {
+      title: 'Excellence',
+      description: 'We are committed to delivering top-quality service, exceeding expectations through precision, innovation, and continual improvement.',
+    },
+    {
+      title: 'Integrity',
+      description: 'We build trust through transparency, accountability, and ethical practices in every partnership and transaction.',
+    },
+    {
+      title: 'Customer-Centricity',
+      description: 'Our clients’ success drives everything we do. We tailor our solutions to meet unique needs and foster long-term relationships.',
+    },
+    {
+      title: 'Efficiency',
+      description: 'We prioritize smart, streamlined processes that maximize value and minimize waste—for our clients and our teams.',
+    },
+    {
+      title: 'Innovation',
+      description: 'We embrace change, invest in technology, and cultivate creativity to stay ahead in a rapidly evolving global market.',
+    },
+    {
+      title: 'Collaboration',
+      description: 'We believe in the power of teamwork—within our organization, with our partners, and across borders.',
+    },
+    {
+      title: 'Empowerment',
+      description: 'We invest in our people, fostering a culture of growth, learning, and opportunity—especially within Egypt’s emerging talent.',
+    },
+  ];
 
   return (
     <div className="min-h-screen relative">
-      <div className="absolute inset-0 -z-10 bg-cover bg-center bg-no-repeat opacity-5"
-           style={{backgroundImage: "url('https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?auto=format&fit=crop&w=1600&q=80')"}}></div>
-      
+      <div
+        className="absolute inset-0 -z-10 bg-cover bg-center bg-no-repeat opacity-5"
+        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?auto=format&fit=crop&w=1600&q=80')" }}
+      ></div>
+
       <Navbar />
-      
-      <div className="pt-24 pb-16 bg-gradient-to-r from-wbo-blue to-wbo-darkblue text-white relative overflow-hidden">
+
+      <motion.div
+        ref={headerRef}
+        variants={containerVariants}
+        initial="hidden"
+        animate={isHeaderInView ? 'visible' : 'hidden'}
+        className="pt-24 pb-16 bg-gradient-to-r from-wbo-blue to-wbo-darkblue text-white relative overflow-hidden"
+      >
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute inset-0 opacity-10">
             {[...Array(15)].map((_, i) => (
-              <div 
+              <div
                 key={i}
                 className="absolute rounded-full bg-white/20"
                 style={{
@@ -51,159 +93,212 @@ const About = () => {
                   height: `${Math.random() * 200 + 50}px`,
                   top: `${Math.random() * 100}%`,
                   left: `${Math.random() * 100}%`,
-                  animation: `pulse ${Math.random() * 4 + 2}s infinite alternate`
+                  animation: `pulse ${Math.random() * 4 + 2}s infinite alternate`,
                 }}
               ></div>
             ))}
           </div>
         </div>
-        
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="container-custom relative z-10"
-        >
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-center">About Us</h1>
-          <div className="w-24 h-1 bg-wbo-accent mx-auto"></div>
+
+        <motion.div variants={itemVariants} className="container-custom relative z-10">
+          <motion.h1 variants={itemVariants} className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-center">
+            About Us
+          </motion.h1>
+          <motion.div variants={itemVariants} className="w-24 h-1 bg-wbo-accent mx-auto"></motion.div>
         </motion.div>
-      </div>
-      
-      <section className="section-padding bg-white" ref={scrollRef}>
+      </motion.div>
+
+      <section className="section-padding bg-white">
         <div className="container-custom">
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="max-w-4xl mx-auto"
-          >
-            <h2 className="text-3xl font-bold text-center text-wbo-blue mb-8">
-              <span className="relative inline-block">
-                GROW TOGETHER WITH OUTSOURCING SERVICES!
-                <span className="absolute bottom-0 left-0 w-full h-1 bg-wbo-accent transform origin-left scale-x-100"></span>
-              </span>
-            </h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-              {[
-                {
-                  title: "Goal",
-                  description: "We are looking to further develop the Cambodia outsourcing industry by creating a professional, respected, and prosperous industry.",
-                  delay: 0.3
-                },
-                {
-                  title: "Mission",
-                  description: "WBO targets the highest levels of international standards, confidential processes and information, enterprise-level data encryption, and secure communications.",
-                  delay: 0.5
-                },
-                {
-                  title: "Vision",
-                  description: "We are developing the outsourcing industry in Cambodia. We will provide outsourcing services with a high level of productivity, broad language capacity, cultural diversity, and an established infrastructure.",
-                  delay: 0.7
-                }
-              ].map((item, index) => (
-                <motion.div 
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: item.delay }}
+          <motion.div variants={containerVariants} initial="hidden" animate="visible" className="max-w-4xl mx-auto">
+            <motion.div
+              ref={missionVisionRef}
+              variants={containerVariants}
+              initial="hidden"
+              animate={isMissionVisionInView ? 'visible' : 'hidden'}
+            >
+              <motion.h2 variants={itemVariants} className="text-3xl font-bold text-center text-wbo-blue mb-8">
+                <span className="relative inline-block">
+                  SCALE WITH GLOBAL-BRIDGE
+                  <span className="absolute bottom-0 left-0 w-full h-1 bg-wbo-accent transform origin-left scale-x-100"></span>
+                </span>
+              </motion.h2>
+
+              <motion.div variants={containerVariants} className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <motion.div
+                  variants={itemVariants}
                   className="bg-gradient-to-br from-gray-50 to-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 border-t-4 border-wbo-accent"
                   whileHover={{ y: -5 }}
                 >
-                  <h3 className="text-xl font-bold text-wbo-blue mb-3">{item.title}</h3>
-                  <p>{item.description}</p>
+                  <motion.h3 variants={itemVariants} className="text-xl font-bold text-wbo-blue mb-3">
+                    Mission
+                  </motion.h3>
+                  <motion.p variants={itemVariants}>Empowering global businesses to reduce costs, improve quality, and scale with confidence.</motion.p>
                 </motion.div>
-              ))}
-            </div>
-            
-            <div className="mt-16 scroll-reveal opacity-0">
+                <motion.div
+                  variants={itemVariants}
+                  className="bg-gradient-to-br from-gray-50 to-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 border-t-4 border-wbo-accent"
+                  whileHover={{ y: -5 }}
+                >
+                  <motion.h3 variants={itemVariants} className="text-xl font-bold text-wbo-blue mb-3">
+                    Vision
+                  </motion.h3>
+                  <motion.p variants={itemVariants}>
+                    To become a leading global partner in intelligent outsourcing—bridging businesses with innovation, efficiency, and exceptional talent—while positioning Egypt as a world-class hub for digital and operational excellence.
+                  </motion.p>
+                </motion.div>
+              </motion.div>
+            </motion.div>
+
+            <motion.div
+              ref={tabsRef}
+              variants={containerVariants}
+              initial="hidden"
+              animate={isTabsInView ? 'visible' : 'hidden'}
+            >
               <Tabs defaultValue="overview" className="w-full">
-                <TabsList className="grid w-full grid-cols-2 mb-8">
-                  <TabsTrigger value="overview">Company Overview</TabsTrigger>
-                  <TabsTrigger value="history">Our History</TabsTrigger>
-                </TabsList>
-                
+                <motion.div variants={itemVariants}>
+                  <TabsList className="grid w-full grid-cols-2 mb-8">
+                    <TabsTrigger value="overview">Company Overview</TabsTrigger>
+                    <TabsTrigger value="history">Our History</TabsTrigger>
+                  </TabsList>
+                </motion.div>
+
                 <TabsContent value="overview" className="space-y-6">
-                  <div className="flex flex-col md:flex-row gap-8 items-center">
-                    <div className="md:w-1/2">
-                      <h2 className="text-2xl font-bold mb-4 text-wbo-blue">Company Overview</h2>
-                      <p className="text-lg leading-relaxed mb-6">
-                        WorldBridge Outsourcing Solutions Co., Ltd. (WBO) is a member of the WorldBridge Group of companies. 
-                        We have a skilled professional team, equipped with reliable support systems to carry out all types 
-                        of BPO activities.
-                      </p>
-                      <p className="text-lg leading-relaxed mb-6">
-                        Customer concerns are our concerns. Our quality management system ensures standard performance 
-                        equivalent to international standard ISO 9001:2000. All processes and information are kept confidential.
-                      </p>
-                    </div>
-                    <div className="md:w-1/2">
-                      <img 
-                        src="https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=600&q=80" 
-                        alt="WorldBridge Headquarters" 
+                  <motion.div variants={containerVariants} className="flex flex-col md:flex-row gap-8 items-center">
+                    <motion.div variants={itemVariants} className="md:w-1/2">
+                      <motion.h2 variants={itemVariants} className="text-2xl font-bold mb-4 text-wbo-blue">
+                        Company Overview
+                      </motion.h2>
+                      <motion.p variants={itemVariants} className="text-lg leading-relaxed mb-6">
+                        Global-Bridge is a premier outsourcing partner dedicated to delivering innovative solutions that drive business growth.
+                        Specializing in call center services, IT support, software development, marketing operations, and business consultancy,
+                        we leverage Egypt’s exceptional talent pool to provide high-quality, cost-effective services.
+                      </motion.p>
+                      <motion.p variants={itemVariants} className="text-lg leading-relaxed mb-6">
+                        Our commitment to excellence, innovation, and customer success ensures that every partnership delivers measurable value
+                        and sustainable growth.
+                      </motion.p>
+                    </motion.div>
+                    <motion.div variants={itemVariants} className="md:w-1/2">
+                      <motion.img
+                        src="https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=600&q=80"
+                        alt="Global-Bridge Headquarters"
                         className="rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 w-full h-auto"
                       />
-                    </div>
-                  </div>
+                    </motion.div>
+                  </motion.div>
                 </TabsContent>
-                
+
                 <TabsContent value="history" className="space-y-6">
-                  <div className="flex flex-col md:flex-row gap-8 items-center">
-                    <div className="md:w-1/2">
-                      <img 
-                        src="https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=600&q=80" 
-                        alt="Company Growth" 
+                  <motion.div variants={containerVariants} className="flex flex-col md:flex-row gap-8 items-center">
+                    <motion.div variants={itemVariants} className="md:w-1/2">
+                      <motion.img
+                        src="https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=600&q=80"
+                        alt="Company Growth"
                         className="rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 w-full h-auto"
                       />
-                    </div>
-                    <div className="md:w-1/2">
-                      <h2 className="text-2xl font-bold mb-4 text-wbo-blue">Our Journey</h2>
-                      <p className="text-lg leading-relaxed mb-6">
-                        Since our inception, WorldBridge Outsourcing has been dedicated to creating a professional 
-                        outsourcing environment in Cambodia. Through strategic partnerships and continuous improvement, 
-                        we have grown to become a leader in the Southeast Asian BPO industry.
-                      </p>
-                      <p className="text-lg leading-relaxed mb-6">
-                        Our commitment to excellence and customer satisfaction has enabled us to expand our services 
-                        and reach clients across various industries globally.
-                      </p>
-                    </div>
-                  </div>
+                    </motion.div>
+                    <motion.div variants={itemVariants} className="md:w-1/2">
+                      <motion.h2 variants={itemVariants} className="text-2xl font-bold mb-4 text-wbo-blue">
+                        Our Journey
+                      </motion.h2>
+                      <motion.p variants={itemVariants} className="text-lg leading-relaxed mb-6">
+                        Global-Bridge was founded with a vision to transform the outsourcing landscape by harnessing Egypt’s unique advantages.
+                        Over the years, we have built a reputation for excellence, serving clients across diverse industries with tailored solutions.
+                      </motion.p>
+                      <motion.p variants={itemVariants} className="text-lg leading-relaxed mb-6">
+                        Our growth is fueled by a commitment to innovation, a passion for empowering businesses, and a dedication to positioning
+                        Egypt as a global outsourcing hub.
+                      </motion.p>
+                    </motion.div>
+                  </motion.div>
                 </TabsContent>
               </Tabs>
-            </div>
-            
+            </motion.div>
+
             <AboutStats />
-            
-            <div className="mt-16 scroll-reveal opacity-0">
-              <h2 className="text-2xl font-bold mb-8 text-center text-wbo-blue">Our Leadership Team</h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <TeamMember 
-                  name="John Smith" 
-                  position="Chief Executive Officer" 
-                  imageSrc="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=300&q=80" 
-                />
-                <TeamMember 
-                  name="Sarah Johnson" 
-                  position="Chief Operations Officer" 
-                  imageSrc="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80" 
-                />
-                <TeamMember 
-                  name="Michael Chen" 
-                  position="Chief Technology Officer" 
-                  imageSrc="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=300&q=80" 
-                />
-              </div>
-            </div>
-            
-            <div className="mt-16 scroll-reveal opacity-0">
-              <h2 className="text-2xl font-bold mb-8 text-center text-wbo-blue">Our Facilities</h2>
-              <ImageGallery />
-            </div>
+
+            <motion.div
+              ref={coreValuesRef}
+              variants={containerVariants}
+              initial="hidden"
+              animate={isCoreValuesInView ? 'visible' : 'hidden'}
+              className="mt-16"
+            >
+              <motion.h2 variants={itemVariants} className="text-2xl font-bold mb-8 text-center text-wbo-blue">
+                Our Core Values
+              </motion.h2>
+              <motion.div variants={containerVariants} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {coreValues.map((value, index) => (
+                  <motion.div
+                    key={index}
+                    variants={itemVariants}
+                    className="bg-gradient-to-br from-gray-50 to-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 border-t-4 border-wbo-accent"
+                    whileHover={{ y: -5 }}
+                  >
+                    <motion.h3 variants={itemVariants} className="text-xl font-bold text-wbo-blue mb-3">
+                      {value.title}
+                    </motion.h3>
+                    <motion.p variants={itemVariants}>{value.description}</motion.p>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </motion.div>
+
+            <motion.div
+              ref={leadershipRef}
+              variants={containerVariants}
+              initial="hidden"
+              animate={isLeadershipInView ? 'visible' : 'hidden'}
+              className="mt-16"
+            >
+              <motion.h2 variants={itemVariants} className="text-2xl font-bold mb-8 text-center text-wbo-blue">
+                Our Leadership Team
+              </motion.h2>
+              <motion.div variants={containerVariants} className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <motion.div variants={itemVariants}>
+                  <TeamMember
+                    name="John Smith"
+                    position="Chief Executive Officer"
+                    imageSrc="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=300&q=80"
+                  />
+                </motion.div>
+                <motion.div variants={itemVariants}>
+                  <TeamMember
+                    name="Sarah Johnson"
+                    position="Chief Operations Officer"
+                    imageSrc="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80"
+                  />
+                </motion.div>
+                <motion.div variants={itemVariants}>
+                  <TeamMember
+                    name="Michael Chen"
+                    position="Chief Technology Officer"
+                    imageSrc="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=300&q=80"
+                  />
+                </motion.div>
+              </motion.div>
+            </motion.div>
+
+            <motion.div
+              ref={facilitiesRef}
+              variants={containerVariants}
+              initial="hidden"
+              animate={isFacilitiesInView ? 'visible' : 'hidden'}
+              className="mt-16"
+            >
+              <motion.h2 variants={itemVariants} className="text-2xl font-bold mb-8 text-center text-wbo-blue">
+                Our Facilities
+              </motion.h2>
+              <motion.div variants={itemVariants}>
+                <ImageGallery />
+              </motion.div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
-      
+
       <Footer />
     </div>
   );

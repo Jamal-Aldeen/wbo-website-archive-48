@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 const images = [
   {
     src: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=600&q=80",
-    alt: "WBO Office Building",
+    alt: "Global Bridge Office Building",
     description: "Our main headquarters in Phnom Penh"
   },
   {

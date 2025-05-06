@@ -16,17 +16,20 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 215 90% 32%;
+    --primary: 199 43% 37%;  /* #5085A5 - wbo-blue */
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 210 40% 96.1%;
+    --secondary: 199 60% 73%;  /* #8FC1E3 - wbo-lightblue */
     --secondary-foreground: 222.2 47.4% 11.2%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
+    --accent: 200 36% 37%;  /* #31708E - wbo-darkblue */
     --accent-foreground: 222.2 47.4% 11.2%;
+
+    --green: 180 100% 20%;/* #E9B949 - wbo-green */
+    --green-foreground: 210 40% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
@@ -41,23 +44,23 @@
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-neutral-200;
   }
 
   body {
-    @apply bg-background text-foreground font-[Poppins];
+    @apply bg-white text-gray-900 font-[Poppins];
   }
 }
 
 @keyframes pulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+    box-shadow: 0 0 0 0 rgba(49, 112, 142, 0.7);  /* Updated to match wbo-darkblue */
   }
   70% {
-    box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+    box-shadow: 0 0 0 10px rgba(49, 112, 142, 0);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+    box-shadow: 0 0 0 0 rgba(49, 112, 142, 0);
   }
 }
 
@@ -75,4 +78,59 @@
 
 .section-padding {
   @apply py-10 md:py-16;
+}
+
+/* Added gradient classes for the new color scheme */
+.bg-wbo-gradient-primary {
+  @apply bg-gradient-to-r from-wbo-darkteal to-wbo-darkblue;
+}
+
+.bg-wbo-gradient-secondary {
+  @apply bg-gradient-to-r from-wbo-blue to-wbo-lightblue;
+}
+
+.bg-wbo-gradient-light {
+  @apply bg-gradient-to-r from-wbo-lightblue to-wbo-offwhite;
+}
+
+/* New gradient with green color */
+.bg-wbo-gradient-green {
+  @apply bg-gradient-to-r from-wbo-blue to-wbo-green;
+}
+
+/* Animation for fade-in effect */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.nav-link {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px; /* Adjust based on your design */
+  left: 50%;
+  background-color: #003333; /* Underline color */
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+  left: 0;
 }

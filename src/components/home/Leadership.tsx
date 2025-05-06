@@ -8,15 +8,15 @@ import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext
 const leadershipTeam = [
   {
     id: 1,
-    image: 'public/lovable-uploads/608e9585-2f5d-4bb6-b524-e8e5da70a798.png',
+    image: 'https://adaptcommunitynetwork.org/wp-content/uploads/2023/09/person-placeholder.jpg',
   },
   {
     id: 2,
-    image: 'public/lovable-uploads/de0ab30f-e0d8-49f2-a0dc-3bf3a9c19ffa.png',
+    image: 'https://adaptcommunitynetwork.org/wp-content/uploads/2023/09/person-placeholder.jpg',
   },
   {
     id: 3,
-    image: 'public/lovable-uploads/9a72b338-5d68-48ea-8ad5-fc8eba7f48d2.png',
+    image: 'https://adaptcommunitynetwork.org/wp-content/uploads/2023/09/person-placeholder.jpg',
   },
 ];
 
@@ -24,8 +24,8 @@ const Leadership = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   
   return (
-    <section className="relative py-24 bg-purple-100 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-r from-purple-600/30 to-blue-500/30 mix-blend-multiply"></div>
+    <section className="relative py-24 bg-wbo-gradient-primary overflow-hidden">
+      <div className="absolute inset-0 bg-wbo-darkblue/30 mix-blend-multiply"></div>
 
       <div className="container-custom relative z-10">
         <motion.div 
@@ -46,7 +46,12 @@ const Leadership = () => {
             loop: true,
           }}
           className="w-full"
-          onSelect={(index) => setActiveIndex(index)}
+          setApi={(api) => {
+            api?.on("select", () => {
+              // Update the active index using the API's selectedScrollSnap method
+              setActiveIndex(api.selectedScrollSnap());
+            });
+          }}
         >
           <CarouselContent>
             {leadershipTeam.map((leader, index) => (
@@ -65,26 +70,26 @@ const Leadership = () => {
           </CarouselContent>
           
           <div className="flex justify-center mt-8">
-            <CarouselPrevious className="relative mr-2 bg-white/30 hover:bg-white/50" />
+            <CarouselPrevious className="relative mr-2 bg-wbo-offwhite/30 hover:bg-wbo-offwhite/50 text-wbo-offwhite" />
             <div className="flex space-x-2 mx-4">
               {leadershipTeam.map((_, index) => (
                 <button
                   key={index}
                   className={`w-3 h-3 rounded-full ${
-                    activeIndex === index ? "bg-white" : "bg-white/40"
+                    activeIndex === index ? "bg-wbo-offwhite" : "bg-wbo-offwhite/40"
                   }`}
                   aria-label={`Go to slide ${index + 1}`}
                   onClick={() => setActiveIndex(index)}
                 />
               ))}
             </div>
-            <CarouselNext className="relative ml-2 bg-white/30 hover:bg-white/50" />
+            <CarouselNext className="relative ml-2 bg-wbo-offwhite/30 hover:bg-wbo-offwhite/50 text-wbo-offwhite" />
           </div>
         </Carousel>
         
         <div className="text-center mt-10">
           <Link to="/about">
-            <Button className="bg-white text-purple-800 hover:bg-white/90 rounded-full">
+            <Button className="bg-wbo-offwhite text-wbo-darkblue hover:bg-wbo-offwhite/90 rounded-full">
               MEET OUR TEAM
             </Button>
           </Link>

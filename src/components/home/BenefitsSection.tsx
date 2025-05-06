@@ -39,7 +39,7 @@ const benefits = [
 
 const BenefitsSection = () => {
   return (
-    <section className="relative py-20 overflow-hidden bg-gradient-to-r from-indigo-900 to-purple-900 text-white">
+    <section className="relative py-20 overflow-hidden bg-gradient-to-r from-wbo-darkblue to-wbo-blue text-white">
       <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1550645612-83f5d594b671?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')] opacity-10 bg-cover bg-center"></div>
       
       <div className="container-custom relative z-10">
@@ -53,7 +53,7 @@ const BenefitsSection = () => {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
             Southeast Asia's BPO Expert
           </h2>
-          <p className="text-xl text-white/80 max-w-3xl mx-auto">
+          <p className="text-xl text-wbo-offwhite/90 max-w-3xl mx-auto">
             Where technology powers exceptional customer experiences
           </p>
         </motion.div>
@@ -74,12 +74,12 @@ const BenefitsSection = () => {
               viewport={{ once: true }}
               className="flex flex-col items-center text-center"
             >
-              <div className="bg-white/10 p-4 rounded-full mb-4">
+              <div className="bg-wbo-lightblue/20 p-4 rounded-full mb-4">
                 {benefit.icon}
               </div>
               <h3 className="text-lg font-semibold mb-2">{benefit.title}</h3>
               {benefit.description && (
-                <p className="text-sm text-white/70">{benefit.description}</p>
+                <p className="text-sm text-wbo-offwhite/80">{benefit.description}</p>
               )}
             </motion.div>
           ))}
@@ -91,7 +91,7 @@ const BenefitsSection = () => {
           viewport={{ once: true }}
           className="text-center"
         >
-          <button className="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-8 rounded-full transition-all">
+          <button className="bg-wbo-accent hover:bg-wbo-darkblue text-white font-bold py-3 px-8 rounded-full transition-all">
             CONNECT WITH OUR EXPERTS
           </button>
         </motion.div>
