@@ -19,4 +19,12 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  base: "/wbo-website-archive-48/", // Added for GitHub Pages subdirectory
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+    // Ensure public files are copied
+   // Ensure output directory matches your deploy script
+    chunkSizeWarningLimit: 600, // Optional: Suppress chunk size warning
+  },
 }));
