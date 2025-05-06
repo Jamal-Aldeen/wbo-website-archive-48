@@ -9,7 +9,7 @@ const Careers = () => {
     <div className="min-h-screen">
       <Navbar />
       
-      <div className="pt-24 pb-16 bg-wbo-blue text-white">
+      <div className="pt-32 pb-16 bg-wbo-blue text-white">
         <div className="container-custom">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-center">Careers</h1>
           <div className="w-24 h-1 bg-white mx-auto"></div>

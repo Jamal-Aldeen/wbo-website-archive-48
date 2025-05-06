@@ -50,7 +50,7 @@ const Partners = () => {
         variants={containerVariants}
         initial="hidden"
         animate={isHeaderInView ? 'visible' : 'hidden'}
-        className="pt-24 pb-16 bg-wbo-blue text-white"
+        className="pt-32 pb-16 bg-wbo-blue text-white"
       >
         <div className="container-custom">
           <motion.h1 variants={itemVariants} className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-center">

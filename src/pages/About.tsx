@@ -80,32 +80,14 @@ const About = () => {
         variants={containerVariants}
         initial="hidden"
         animate={isHeaderInView ? 'visible' : 'hidden'}
-        className="pt-24 pb-16 bg-gradient-to-r from-wbo-blue to-wbo-darkblue text-white relative overflow-hidden"
+        className="pt-32 pb-16 bg-wbo-blue text-white"
       >
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute inset-0 opacity-10">
-            {[...Array(15)].map((_, i) => (
-              <div
-                key={i}
-                className="absolute rounded-full bg-white/20"
-                style={{
-                  width: `${Math.random() * 200 + 50}px`,
-                  height: `${Math.random() * 200 + 50}px`,
-                  top: `${Math.random() * 100}%`,
-                  left: `${Math.random() * 100}%`,
-                  animation: `pulse ${Math.random() * 4 + 2}s infinite alternate`,
-                }}
-              ></div>
-            ))}
-          </div>
-        </div>
-
-        <motion.div variants={itemVariants} className="container-custom relative z-10">
+        <div className="container-custom">
           <motion.h1 variants={itemVariants} className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-center">
             About Us
           </motion.h1>
-          <motion.div variants={itemVariants} className="w-24 h-1 bg-wbo-accent mx-auto"></motion.div>
-        </motion.div>
+          <motion.div variants={itemVariants} className="w-24 h-1 bg-white mx-auto"></motion.div>
+        </div>
       </motion.div>
 
       <section className="section-padding bg-white">
