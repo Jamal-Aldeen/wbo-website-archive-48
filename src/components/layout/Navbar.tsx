@@ -35,8 +35,8 @@ const Navbar: React.FC = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <img src="Global_bridge_Icon.svg" alt="WBO Logo" className="h-8 w-auto" />
-            <img src="GB.svg" alt="WBO Logo" className="h-5 w-auto" />
+            <img src="Global_bridge_Icon.svg" alt="GB Logo" className="h-8 w-auto" />
+            <img src="GB.svg" alt="GB Logo" className="h-5 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}

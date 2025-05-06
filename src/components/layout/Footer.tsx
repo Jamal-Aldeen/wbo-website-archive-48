@@ -11,8 +11,8 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-xl font-bold mb-4">WBO</h3>
-            <p className="mb-4">WorldBridge Outsourcing Solutions Co., Ltd. is a member of the WorldBridge Group of companies.</p>
+            <h3 className="text-xl font-bold mb-4">Global Bridge</h3>
+            <p className="mb-4">Global Bridge Outsourcing Solutions Co., Ltd. is a member of the Global Bridge Group of companies.</p>
             <div className="flex space-x-4">
               <a href="#" className="hover:text-wbo-accent" aria-label="Facebook">
                 <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -80,7 +80,7 @@ const Footer = () => {
           <div>
             {/* <h3 className="text-xl font-bold mb-4">Subscribe</h3>
             <p className="mb-4">Subscribe to our mailing list for offers, news updates, and more!</p> */}
-            <img src="Global_bridge.svg" alt="WorldBridge Outsourcing Solutions" className="mb-4" />
+            <img src="Global_bridge.svg" alt="Global Bridge Outsourcing Solutions" className="mb-4" />
             {/* <div className="space-y-3">
               <Input 
                 type="email" 
@@ -121,7 +121,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="text-center mt-8 pt-4 border-t border-white/10 text-sm">
-          <p>© 2025 WorldBridge Outsourcing Solutions. All rights reserved.</p>
+          <p>© 2025 Global Bridge Outsourcing Solutions. All rights reserved.</p>
         </div>
       </div>
     </footer>

@@ -68,7 +68,7 @@ const Partners = () => {
             </motion.h2>
 
             <motion.p variants={itemVariants} className="text-lg mb-8 text-center">
-              WorldBridge Outsourcing Solutions values strategic partnerships that enhance our service delivery capabilities and provide added value to our clients.
+            Global Bridge Outsourcing Solutions values strategic partnerships that enhance our service delivery capabilities and provide added value to our clients.
             </motion.p>
 
             <motion.div
@@ -101,7 +101,7 @@ const Partners = () => {
                 Become a Partner
               </motion.h3>
               <motion.p variants={itemVariants} className="mb-6">
-                Interested in partnering with WorldBridge Outsourcing Solutions? Contact us to explore potential collaboration opportunities.
+                Interested in partnering with Global Bridge Outsourcing Solutions? Contact us to explore potential collaboration opportunities.
               </motion.p>
               <motion.a
                 variants={itemVariants}

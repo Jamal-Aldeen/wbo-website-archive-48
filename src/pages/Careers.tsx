@@ -28,7 +28,7 @@ const Careers = () => {
             <div className="bg-gray-50 p-8 rounded-lg shadow-md mb-8">
               <h3 className="text-xl font-bold mb-4">Why Work With Us?</h3>
               <p className="mb-6">
-                At WorldBridge Outsourcing Solutions, we offer a dynamic work environment where professionals can grow their skills and advance their careers in the BPO industry.
+                At Global Bridge Outsourcing Solutions, we offer a dynamic work environment where professionals can grow their skills and advance their careers in the BPO industry.
               </p>
               <ul className="text-left space-y-2 mb-6">
                 <li className="flex items-center">

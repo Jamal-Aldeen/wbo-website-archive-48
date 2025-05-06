@@ -27,7 +27,7 @@ const CallCenterSolutions = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Call Center Solutions</h2>
           <div className="w-24 h-1 bg-wbo-offwhite mx-auto mb-6"></div>
           <p className="text-lg max-w-3xl mx-auto">
-            WBO Services, through its partners and suppliers, can offer next-generation platforms 
+            Global Bridge Services, through its partners and suppliers, can offer next-generation platforms 
             that power millions of interactions for:
           </p>
         </div>

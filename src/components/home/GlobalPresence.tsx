@@ -70,7 +70,7 @@ const GlobalPresence = () => {
               A global industry leader who thinks local and acts global to orchestrate outcomes
             </h2>
             <p className="text-gray-600">
-              WorldBridge Outsourcing Solutions is a premier, global CX management company with a
+            Global Bridge Outsourcing Solutions is a premier, global CX management company with a
               dominant presence in Southeast Asia and expanding globally. 
             </p>
           </motion.div>
