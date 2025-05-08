@@ -1,36 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
   return (
-    <header
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'
-      }`}
-    >
+    <header className="fixed top-0 w-full z-50 bg-white shadow-md py-2 transition-all duration-300">
       <div className="container-custom">
         <div className="flex items-center justify-between">
           {/* Logo */}
@@ -108,7 +88,7 @@ const Navbar: React.FC = () => {
             className="absolute top-4 right-4 text-wbo-green focus:outline-none"
             onClick={toggleMenu}
             aria-label="Close menu"
-          >
+            >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
@@ -125,9 +105,6 @@ const Navbar: React.FC = () => {
           <Link to="/careers" className="block font-medium nav-link" onClick={toggleMenu}>
             Careers
           </Link>
-          <Link to="/contact" className="block font-medium nav-link" onClick={toggleMenu}>
-            Contact Us
-          </Link>
           <Link to="/why-outsource" className="block font-medium nav-link" onClick={toggleMenu}>
             Why Outsource?
           </Link>
@@ -141,7 +118,9 @@ const Navbar: React.FC = () => {
             About Us
           </Link>
           <Button className="w-full bg-wbo-blue hover:bg-wbo-darkblue" onClick={toggleMenu}>
-            Contact Us
+            <Link to="/contact" className="block font-medium nav-link" onClick={toggleMenu}>
+              Contact Us
+            </Link>
           </Button>
         </nav>
       )}

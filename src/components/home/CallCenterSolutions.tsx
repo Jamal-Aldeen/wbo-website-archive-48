@@ -3,13 +3,15 @@ import React from 'react';
 
 const CallCenterSolutions = () => {
   const services = [
-    'Customer Service',
-    'Technical Support',
-    'Telemarketing – Sales',
-    'Inbound Sales',
-    'Collections',
-    'Order Management',
-    'Ticketing – Bookings',
+    'Managed Services',
+    'Cloud Computing Services',
+    'Network Services',
+    'Software Development and Implementation',
+    'Support and Help Desk Services',
+    'Outsourcing Call Center Agencies',
+    'Telemarketing Agents',
+    'Admin and Remote Office Services',
+    'Early-stage and late-stage debt recovery',
   ];
 
   const industries = [
@@ -18,6 +20,7 @@ const CallCenterSolutions = () => {
     'Market Research',
     'Entertainment',
     'Healthcare',
+    'IT & Software'
   ];
 
   return (

@@ -10,6 +10,9 @@ import AboutStats from '@/components/about/AboutStats';
 const About = () => {
   const headerRef = useRef(null);
   const missionVisionRef = useRef(null);
+  const clientsRef = useRef(null);
+  const contentRef = useRef(null);
+
   const tabsRef = useRef(null);
   const coreValuesRef = useRef(null);
   const leadershipRef = useRef(null);
@@ -17,6 +20,8 @@ const About = () => {
 
   const isHeaderInView = useInView(headerRef, { once: false, amount: 0.3 });
   const isMissionVisionInView = useInView(missionVisionRef, { once: false, amount: 0.3 });
+  const isClientsInView = useInView(clientsRef, { once: false, amount: 0.3 });
+  const isContentInView = useInView(contentRef, { once: false, amount: 0.3 });
   const isTabsInView = useInView(tabsRef, { once: false, amount: 0.3 });
   const isCoreValuesInView = useInView(coreValuesRef, { once: false, amount: 0.3 });
   const isLeadershipInView = useInView(leadershipRef, { once: false, amount: 0.3 });
@@ -66,6 +71,17 @@ const About = () => {
     },
   ];
 
+  const clientLogos = [
+    { name: 'We telecomegypt', logo: 'we.jpg' },
+    { name: 'Bank Audi', logo: 'bank-audi.png' },
+    { name: 'FTI', logo: 'fti.png' },
+    { name: 'Commvault', logo: 'comm.png' },
+    { name: 'FAB', logo: 'fab.png' },
+    { name: 'CIB', logo: 'cib.png' },
+    { name: 'vmware', logo: 'vmware.png' },
+    { name: 'ACT', logo: 'act.png' },
+  ];
+
   return (
     <div className="min-h-screen relative">
       <div
@@ -80,77 +96,67 @@ const About = () => {
         variants={containerVariants}
         initial="hidden"
         animate={isHeaderInView ? 'visible' : 'hidden'}
-        className="pt-24 pb-16 bg-gradient-to-r from-wbo-blue to-wbo-darkblue text-white relative overflow-hidden"
+        className="pt-32 pb-16 bg-wbo-blue text-white"
       >
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute inset-0 opacity-10">
-            {[...Array(15)].map((_, i) => (
-              <div
-                key={i}
-                className="absolute rounded-full bg-white/20"
-                style={{
-                  width: `${Math.random() * 200 + 50}px`,
-                  height: `${Math.random() * 200 + 50}px`,
-                  top: `${Math.random() * 100}%`,
-                  left: `${Math.random() * 100}%`,
-                  animation: `pulse ${Math.random() * 4 + 2}s infinite alternate`,
-                }}
-              ></div>
-            ))}
-          </div>
-        </div>
-
-        <motion.div variants={itemVariants} className="container-custom relative z-10">
+        <div className="container-custom">
           <motion.h1 variants={itemVariants} className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-center">
             About Us
           </motion.h1>
-          <motion.div variants={itemVariants} className="w-24 h-1 bg-wbo-accent mx-auto"></motion.div>
-        </motion.div>
+          <motion.div variants={itemVariants} className="w-24 h-1 bg-white mx-auto"></motion.div>
+        </div>
       </motion.div>
 
       <section className="section-padding bg-white">
         <div className="container-custom">
-          <motion.div variants={containerVariants} initial="hidden" animate="visible" className="max-w-4xl mx-auto">
-            <motion.div
-              ref={missionVisionRef}
-              variants={containerVariants}
-              initial="hidden"
-              animate={isMissionVisionInView ? 'visible' : 'hidden'}
+          <motion.div
+            ref={contentRef}
+            variants={containerVariants}
+            initial="hidden"
+            animate={isContentInView ? 'visible' : 'hidden'}
+            className="max-w-4xl mx-auto"
+          >
+            <motion.div variants={itemVariants} className="space-y-6">
+              <motion.p variants={itemVariants} className="text-lg leading-relaxed">
+                Global-Bridge is an outsourcing agency founded in 2023, with over 40 years of combined experience. Delivering tailored local outsourcing solutions through a highly talented team. Our professionals bring extensive expertise from multinational companies such as:
+              </motion.p>
+              <motion.ul variants={itemVariants} className="list-disc list-inside space-y-2 text-lg text-gray-600">
+                <motion.li variants={itemVariants}>VMWare</motion.li>
+                <motion.li variants={itemVariants}>Commvault</motion.li>
+                <motion.li variants={itemVariants}>FTI Touristik</motion.li>
+                <motion.li variants={itemVariants}>CIB Bank</motion.li>
+                <motion.li variants={itemVariants}>FAB Bank</motion.li>
+              </motion.ul>
+              <motion.p variants={itemVariants} className="text-lg leading-relaxed">
+                We are committed to understanding your goals and providing services that truly serve your needs and ensure success.
+              </motion.p>
+              <motion.h2 
+              variants={itemVariants} 
+              className="text-2xl font-bol mb-10 text-center text-wbo-darkblue"
             >
-              <motion.h2 variants={itemVariants} className="text-3xl font-bold text-center text-wbo-blue mb-8">
-                <span className="relative inline-block">
-                  SCALE WITH GLOBAL-BRIDGE
-                  <span className="absolute bottom-0 left-0 w-full h-1 bg-wbo-accent transform origin-left scale-x-100"></span>
-                </span>
-              </motion.h2>
-
-              <motion.div variants={containerVariants} className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-                <motion.div
-                  variants={itemVariants}
-                  className="bg-gradient-to-br from-gray-50 to-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 border-t-4 border-wbo-accent"
-                  whileHover={{ y: -5 }}
-                >
-                  <motion.h3 variants={itemVariants} className="text-xl font-bold text-wbo-blue mb-3">
-                    Mission
-                  </motion.h3>
-                  <motion.p variants={itemVariants}>Empowering global businesses to reduce costs, improve quality, and scale with confidence.</motion.p>
-                </motion.div>
-                <motion.div
-                  variants={itemVariants}
-                  className="bg-gradient-to-br from-gray-50 to-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 border-t-4 border-wbo-accent"
-                  whileHover={{ y: -5 }}
-                >
-                  <motion.h3 variants={itemVariants} className="text-xl font-bold text-wbo-blue mb-3">
-                    Vision
-                  </motion.h3>
-                  <motion.p variants={itemVariants}>
-                    To become a leading global partner in intelligent outsourcing—bridging businesses with innovation, efficiency, and exceptional talent—while positioning Egypt as a world-class hub for digital and operational excellence.
-                  </motion.p>
-                </motion.div>
+              Our Expertise
+            </motion.h2>
+              <motion.div
+                variants={containerVariants}
+                className="flex flex-wrap justify-center items-center gap-8 md:gap-12"
+              >
+                {clientLogos.map((client, index) => (
+                  <motion.div
+                    key={index}
+                    variants={itemVariants}
+                    className="grayscale hover:grayscale-0 transition-all duration-300"
+                  >
+                    <img
+                      src={client.logo}
+                      alt={client.name}
+                      className="h-12 md:h-16"
+                    />
+                  </motion.div>
+                ))}
               </motion.div>
             </motion.div>
+          </motion.div>
 
-            <motion.div
+          {/* <motion.div
               ref={tabsRef}
               variants={containerVariants}
               initial="hidden"
@@ -215,11 +221,11 @@ const About = () => {
                   </motion.div>
                 </TabsContent>
               </Tabs>
-            </motion.div>
+            </motion.div> */}
 
-            <AboutStats />
+          {/* <AboutStats /> */}
 
-            <motion.div
+          {/* <motion.div
               ref={coreValuesRef}
               variants={containerVariants}
               initial="hidden"
@@ -244,9 +250,9 @@ const About = () => {
                   </motion.div>
                 ))}
               </motion.div>
-            </motion.div>
+            </motion.div> */}
 
-            <motion.div
+          {/* <motion.div
               ref={leadershipRef}
               variants={containerVariants}
               initial="hidden"
@@ -294,8 +300,8 @@ const About = () => {
               <motion.div variants={itemVariants}>
                 <ImageGallery />
               </motion.div>
-            </motion.div>
-          </motion.div>
+            </motion.div> 
+          </motion.div>*/}
         </div>
       </section>
 

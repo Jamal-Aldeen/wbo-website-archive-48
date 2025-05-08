@@ -12,20 +12,23 @@ import Leadership from '@/components/home/Leadership';
 import ClientLogos from '@/components/home/ClientLogos';
 import GlobalPresence from '@/components/home/GlobalPresence';
 import BenefitsSection from '@/components/home/BenefitsSection';
+import MissionVision from '@/components/home/MissionVision';
 
 const Index = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
       <Hero />
-      {/* <ClientLogos /> */}
+      <MissionVision />
+      <ClientLogos />
+      <CoreValues />
       <GlobalPresence />
       <Leadership />
-      <BenefitsSection />
+      {/* <BenefitsSection /> */}
       <ServicesOverview />
       <Statistics />
-      <CoreValues />
-      <Testimonials />
+      {/* <CoreValues /> */}
+      {/* <Testimonials /> */}
       <CallCenterSolutions />
       <Footer />
     </div>
