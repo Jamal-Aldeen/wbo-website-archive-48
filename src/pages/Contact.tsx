@@ -1,5 +1,9 @@
-
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import * as z from 'zod';
+import emailjs from '@emailjs/browser';
+import { toast } from 'sonner';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
@@ -7,7 +11,60 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent } from '@/components/ui/card';
 
+// Define the form schema with zod
+const formSchema = z.object({
+  firstName: z.string().min(1, 'First name is required'),
+  lastName: z.string().min(1, 'Last name is required'),
+  email: z.string().email('Invalid email address'),
+  subject: z.string().min(1, 'Subject is required'),
+  message: z.string().min(1, 'Message is required'),
+});
+
+// Define form data type based on schema
+type FormData = z.infer<typeof formSchema>;
+
 const Contact = () => {
+  // Initialize react-hook-form with zod resolver
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    reset,
+  } = useForm<FormData>({
+    resolver: zodResolver(formSchema),
+  });
+
+  // Initialize EmailJS (replace with your User ID)
+  useEffect(() => {
+    emailjs.init('amws90BipwVJsZ68r');
+  }, []);
+
+  // Handle form submission
+  const onSubmit = async (data: FormData) => {
+    try {
+      // Send email using EmailJS
+      await emailjs.send(
+        'service_ieyypk8', // Replace with your Service ID
+        'template_zmq7tlp', // Replace with your Template ID
+        {
+          firstName: data.firstName,
+          lastName: data.lastName,
+          email: data.email,
+          subject: data.subject,
+          message: data.message,
+        }
+      );
+
+      // Show success toast
+      toast.success('Message sent successfully!');
+      reset(); // Clear form after successful submission
+    } catch (error) {
+      // Show error toast
+      toast.error('Failed to send message. Please try again.');
+      console.error('EmailJS error:', error);
+    }
+  };
+
   return (
     <div className="min-h-screen">
       <Navbar />
@@ -77,34 +134,45 @@ const Contact = () => {
             <div>
               <h2 className="heading-2 mb-6">Make Appointment</h2>
               
-              <form className="space-y-4">
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1">First Name *</label>
-                    <Input id="firstName" required />
+                    <Input id="firstName" {...register('firstName')} />
+                    {errors.firstName && <p className="text-red-500 text-sm mt-1">{errors.firstName.message}</p>}
                   </div>
                   <div>
                     <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-1">Last Name *</label>
-                    <Input id="lastName" required />
+                    <Input id="lastName" {...register('lastName')} />
+                    {errors.lastName && <p className="text-red-500 text-sm mt-1">{errors.lastName.message}</p>}
                   </div>
                 </div>
                 
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email *</label>
-                  <Input id="email" type="email" required />
+                  <Input id="email" type="email" {...register('email')} />
+                  {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
                 </div>
                 
                 <div>
                   <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">Subject *</label>
-                  <Input id="subject" required />
+                  <Input id="subject" {...register('subject')} />
+                  {errors.subject && <p className="text-red-500 text-sm mt-1">{errors.subject.message}</p>}
                 </div>
                 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message *</label>
-                  <Textarea id="message" rows={5} required />
+                  <Textarea id="message" rows={5} {...register('message')} />
+                  {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>}
                 </div>
                 
-                <Button type="submit" className="bg-wbo-blue hover:bg-wbo-darkblue w-full">Submit Message</Button>
+                <Button
+                  type="submit"
+                  className="bg-wbo-blue hover:bg-wbo-darkblue w-full"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? 'Sending...' : 'Submit Message'}
+                </Button>
               </form>
             </div>
           </div>
