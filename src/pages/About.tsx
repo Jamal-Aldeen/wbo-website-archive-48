@@ -129,12 +129,12 @@ const About = () => {
               <motion.p variants={itemVariants} className="text-lg leading-relaxed">
                 We are committed to understanding your goals and providing services that truly serve your needs and ensure success.
               </motion.p>
-              {/* <motion.h2 
+              <motion.h2 
               variants={itemVariants} 
               className="text-2xl font-bol mb-10 text-center text-wbo-darkblue"
             >
               Our Expertise
-            </motion.h2> */}
+            </motion.h2>
               <motion.div
                 variants={containerVariants}
                 className="flex flex-wrap justify-center items-center gap-8 md:gap-12"
