@@ -12,10 +12,6 @@ const CallCenterSolutions = () => {
     'Telemarketing Agents',
     'Admin and Remote Office Services',
     'Early-stage and late-stage debt recovery',
-    'Customized communication strategies',
-    'Regulatory-compliant practices',
-    'Transparent reporting and analytics',
-    'A dedicated team trained in financial collections',
   ];
 
   const industries = [
