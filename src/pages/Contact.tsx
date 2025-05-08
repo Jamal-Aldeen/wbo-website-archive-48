@@ -36,7 +36,7 @@ const Contact = () => {
 
   // Initialize EmailJS (replace with your User ID)
   useEffect(() => {
-    emailjs.init('amws90BipwVJsZ68r');
+    emailjs.init(import.meta.env.VITE_EMAILJS_USER_ID);
   }, []);
 
   // Handle form submission
@@ -44,8 +44,8 @@ const Contact = () => {
     try {
       // Send email using EmailJS
       await emailjs.send(
-        'service_ieyypk8', // Replace with your Service ID
-        'template_zmq7tlp', // Replace with your Template ID
+        import.meta.env.VITE_EMAILJS_SERVICE_ID, // Replace with your Service ID
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID, // Replace with your Template ID
         {
           firstName: data.firstName,
           lastName: data.lastName,
@@ -106,7 +106,7 @@ const Contact = () => {
                       </div>
                       <div>
                         <p className="font-semibold text-gray-700">Email</p>
-                        <a href="mailto:info@wboutsourcing.com" className="text-wbo-blue hover:underline">ahmed@globalbridge.it.com</a>
+                        <a href="mailto:info@globalbridge.it.com" className="text-wbo-blue hover:underline">info@globalbridge.it.com</a>
                       </div>
                     </div>
                     
