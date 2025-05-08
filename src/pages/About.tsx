@@ -117,7 +117,7 @@ const About = () => {
           >
             <motion.div variants={itemVariants} className="space-y-6">
               <motion.p variants={itemVariants} className="text-lg leading-relaxed">
-                Global-Bridge is an outsourcing agency founded in 2023, delivering tailored local outsourcing solutions through a highly talented team. Our professionals bring extensive expertise from multinational companies such as:
+                Global-Bridge is an outsourcing agency founded in 2023, with over 40 years of combined experience. Delivering tailored local outsourcing solutions through a highly talented team. Our professionals bring extensive expertise from multinational companies such as:
               </motion.p>
               <motion.ul variants={itemVariants} className="list-disc list-inside space-y-2 text-lg text-gray-600">
                 <motion.li variants={itemVariants}>VMWare</motion.li>
@@ -127,7 +127,7 @@ const About = () => {
                 <motion.li variants={itemVariants}>FAB Bank</motion.li>
               </motion.ul>
               <motion.p variants={itemVariants} className="text-lg leading-relaxed">
-                With over 40 years of combined experience, we are committed to understanding your goals and providing services that truly serve your needs and ensure success.
+                We are committed to understanding your goals and providing services that truly serve your needs and ensure success.
               </motion.p>
               {/* <motion.h2 
               variants={itemVariants} 
