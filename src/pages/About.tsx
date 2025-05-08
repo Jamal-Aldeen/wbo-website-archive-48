@@ -72,11 +72,14 @@ const About = () => {
   ];
 
   const clientLogos = [
-    { name: 'VMWare', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/VMware_logo.svg/1200px-VMware_logo.svg.png' },
-    { name: 'Commvault', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Commvault_Logo.svg/1200px-Commvault_Logo.svg.png' },
-    { name: 'FTI Touristik', logo: 'https://via.placeholder.com/150x60?text=FTI+Touristik' },
-    { name: 'CIB Bank', logo: 'https://via.placeholder.com/150x60?text=CIB+Bank' },
-    { name: 'FAB Bank', logo: 'https://via.placeholder.com/150x60?text=FAB+Bank' },
+    { name: 'We telecomegypt', logo: 'we.jpg' },
+    { name: 'Bank Audi', logo: 'bank-audi.png' },
+    { name: 'FTI', logo: 'fti.png' },
+    { name: 'Commvault', logo: 'comm.png' },
+    { name: 'FAB', logo: 'fab.png' },
+    { name: 'CIB', logo: 'cib.png' },
+    { name: 'vmware', logo: 'vmware.png' },
+    { name: 'ACT', logo: 'act.png' },
   ];
 
   return (
@@ -105,7 +108,7 @@ const About = () => {
 
       <section className="section-padding bg-white">
         <div className="container-custom">
-        <motion.div
+          <motion.div
             ref={contentRef}
             variants={containerVariants}
             initial="hidden"
@@ -126,40 +129,40 @@ const About = () => {
               <motion.p variants={itemVariants} className="text-lg leading-relaxed">
                 With over 40 years of combined experience, we are committed to understanding your goals and providing services that truly serve your needs and ensure success.
               </motion.p>
-              <motion.h2 
+              {/* <motion.h2 
               variants={itemVariants} 
-              className="text-2xl font-bold mb-10 text-center text-wbo-darkblue"
+              className="text-2xl font-bol mb-10 text-center text-wbo-darkblue"
             >
               Our Expertise
-            </motion.h2>
-            <motion.div 
-              variants={containerVariants}
-              className="flex flex-wrap justify-center items-center gap-8 md:gap-12"
-            >
-              {clientLogos.map((client, index) => (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  className="grayscale hover:grayscale-0 transition-all duration-300"
-                >
-                  <img 
-                    src={client.logo} 
-                    alt={client.name} 
-                    className="h-12 md:h-16"
-                  />
-                </motion.div>
-              ))}
-            </motion.div>
+            </motion.h2> */}
+              <motion.div
+                variants={containerVariants}
+                className="flex flex-wrap justify-center items-center gap-8 md:gap-12"
+              >
+                {clientLogos.map((client, index) => (
+                  <motion.div
+                    key={index}
+                    variants={itemVariants}
+                    className="grayscale hover:grayscale-0 transition-all duration-300"
+                  >
+                    <img
+                      src={client.logo}
+                      alt={client.name}
+                      className="h-12 md:h-16"
+                    />
+                  </motion.div>
+                ))}
+              </motion.div>
             </motion.div>
           </motion.div>
 
-             <motion.div
+          {/* <motion.div
               ref={tabsRef}
               variants={containerVariants}
               initial="hidden"
               animate={isTabsInView ? 'visible' : 'hidden'}
             >
-              {/*<Tabs defaultValue="overview" className="w-full">
+              <Tabs defaultValue="overview" className="w-full">
                 <motion.div variants={itemVariants}>
                   <TabsList className="grid w-full grid-cols-2 mb-8">
                     <TabsTrigger value="overview">Company Overview</TabsTrigger>
@@ -220,9 +223,9 @@ const About = () => {
               </Tabs>
             </motion.div> */}
 
-            <AboutStats />
+          {/* <AboutStats /> */}
 
-            {/* <motion.div
+          {/* <motion.div
               ref={coreValuesRef}
               variants={containerVariants}
               initial="hidden"
@@ -249,7 +252,7 @@ const About = () => {
               </motion.div>
             </motion.div> */}
 
-            <motion.div
+          {/* <motion.div
               ref={leadershipRef}
               variants={containerVariants}
               initial="hidden"
@@ -297,8 +300,8 @@ const About = () => {
               <motion.div variants={itemVariants}>
                 <ImageGallery />
               </motion.div>
-            </motion.div>
-          </motion.div>
+            </motion.div> 
+          </motion.div>*/}
         </div>
       </section>
 

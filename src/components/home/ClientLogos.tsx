@@ -3,14 +3,14 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const clientLogos = [
-  { name: 'Client 1', logo: 'https://via.placeholder.com/150x60?text=Client+1' },
-  { name: 'Client 2', logo: 'https://via.placeholder.com/150x60?text=Client+2' },
-  { name: 'Client 3', logo: 'https://via.placeholder.com/150x60?text=Client+3' },
-  { name: 'Client 4', logo: 'https://via.placeholder.com/150x60?text=Client+4' },
-  { name: 'Client 5', logo: 'https://via.placeholder.com/150x60?text=Client+5' },
-  { name: 'Client 6', logo: 'https://via.placeholder.com/150x60?text=Client+6' },
-  { name: 'Client 7', logo: 'https://via.placeholder.com/150x60?text=Client+7' },
-  { name: 'Client 8', logo: 'https://via.placeholder.com/150x60?text=Client+8' },
+  { name: 'We telecomegypt', logo: 'act.png' },
+  { name: 'Bank Audi', logo: 'comm.png' },
+  { name: 'FTI', logo: 'bank-audi.png' },
+  { name: 'Commvault', logo: 'comm.png' },
+  { name: 'FAB', logo: 'fab.png' },
+  { name: 'CIB', logo: 'cib.png' },
+  { name: 'vmware', logo: 'vmware.png' },
+  { name: 'ACT', logo: 'act.png' },
 ];
 
 const ClientLogos = () => {
