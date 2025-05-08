@@ -12,6 +12,7 @@ import Leadership from '@/components/home/Leadership';
 import ClientLogos from '@/components/home/ClientLogos';
 import GlobalPresence from '@/components/home/GlobalPresence';
 import BenefitsSection from '@/components/home/BenefitsSection';
+import MissionVision from '@/components/home/MissionVision';
 
 const Index = () => {
   return (
@@ -19,12 +20,14 @@ const Index = () => {
       <Navbar />
       <Hero />
       {/* <ClientLogos /> */}
+      <MissionVision />
+      <CoreValues />
       <GlobalPresence />
       <Leadership />
       <BenefitsSection />
       <ServicesOverview />
       <Statistics />
-      <CoreValues />
+      {/* <CoreValues /> */}
       <Testimonials />
       <CallCenterSolutions />
       <Footer />
