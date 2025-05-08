@@ -94,7 +94,7 @@ const Contact = () => {
                       </div>
                       <div>
                         <p className="font-semibold text-gray-700">Address</p>
-                        <p className="text-gray-600">Street 41, Sangkat Tonle Bassac, Khan Chamkar Morn, Phnom Penh, Cambodia</p>
+                        <p className="text-gray-600">558 – Gardenia – Cairo - Egypt</p>
                       </div>
                     </div>
                     
@@ -106,7 +106,7 @@ const Contact = () => {
                       </div>
                       <div>
                         <p className="font-semibold text-gray-700">Email</p>
-                        <a href="mailto:info@wboutsourcing.com" className="text-wbo-blue hover:underline">info@wboutsourcing.com</a>
+                        <a href="mailto:info@wboutsourcing.com" className="text-wbo-blue hover:underline">ahmed@globalbridge.it.com</a>
                       </div>
                     </div>
                     
@@ -118,7 +118,8 @@ const Contact = () => {
                       </div>
                       <div>
                         <p className="font-semibold text-gray-700">Phone</p>
-                        <a href="tel:+85523987252" className="text-wbo-blue hover:underline">+855(23) 987 252</a>
+                        <a href="tel:+85523987252" className="text-wbo-blue hover:underline">+20-10-91541349</a>
+                        <a href="tel:+85523987252" className="text-wbo-blue hover:underline">+20-1000933361</a>
                       </div>
                     </div>
                   </div>
