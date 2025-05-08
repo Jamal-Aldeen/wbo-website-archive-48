@@ -3,9 +3,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const clientLogos = [
-  { name: 'We telecomegypt', logo: 'act.png' },
-  { name: 'Bank Audi', logo: 'comm.png' },
-  { name: 'FTI', logo: 'bank-audi.png' },
+  { name: 'We telecomegypt', logo: 'we.jpg' },
+  { name: 'Bank Audi', logo: 'bank-audi.png' },
+  { name: 'FTI', logo: 'fti.png' },
   { name: 'Commvault', logo: 'comm.png' },
   { name: 'FAB', logo: 'fab.png' },
   { name: 'CIB', logo: 'cib.png' },
