@@ -31,20 +31,28 @@ const Hero = () => {
           className="w-full lg:w-1/2 p-8 lg:p-16 flex flex-col justify-center"
         >
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-wbo-darkblue mb-6">
-            Connecting your customers to your brand and making them your advocates
+          Connecting your business to growth, innovation and success
           </h1>
           <p className="text-lg text-gray-700 mb-8">
-            Understand how we deliver and build value across all channels, leveraging
-            end-to-end customer lifecycle management to acquire, retain and facilitate
-            superior customer experiences by reimagining great and making it happen.
+            Empowering businesses to scale, streamline, and succeed. Specializing in call center services, 
+            IT support, software development, marketing operations, and business consultancy, we are 
+            your trusted partner for operational excellence.
           </p>
+          <div className="mb-8">
+            <p className="text-xl font-semibold text-wbo-blue">
+              Global bridge is a leader who thinks local and acts global
+            </p>
+            <p className="mt-2 text-gray-700">
+              We simplify outsourcing. You provide the job description, and we take care of the rest.
+            </p>
+          </div>
           <motion.div 
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
             <Link to="/contact">
               <Button className="bg-wbo-accent hover:bg-wbo-darkblue text-white rounded-full px-8 py-3 text-lg">
-                REIMAGINE YOUR CX
+              START OUTSOURCING TODAY
               </Button>
             </Link>
           </motion.div>
