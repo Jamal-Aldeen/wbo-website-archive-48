@@ -78,6 +78,38 @@ const Services = () => {
       ),
       imageUrl: 'https://images.unsplash.com/photo-1605810230434-7631ac76ec81?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
     },
+    {
+      title: 'Collection Services',
+      description: 'Designed specifically for banks, credit unions, and other financial institutions, our specialized collection services provide a professional, ethical, and effective solution tailored to your institution’s needs.',
+      features: [
+        {
+          subtitle: 'Early-stage and Late-stage Debt Recovery',
+          content: 'We manage both early-stage and late-stage debt recovery with strategies that maximize recovery rates while maintaining client relationships.'
+        },
+        {
+          subtitle: 'Customized Communication Strategies',
+          content: 'Our team develops tailored communication approaches to engage debtors effectively, ensuring respectful and professional interactions.'
+        },
+        {
+          subtitle: 'Regulatory-compliant Practices',
+          content: 'All collection activities adhere to industry regulations and compliance standards, protecting your institution from legal risks.'
+        },
+        {
+          subtitle: 'Transparent Reporting and Analytics',
+          content: 'We provide detailed reports and analytics to track collection performance, offering insights to optimize recovery strategies.'
+        },
+        {
+          subtitle: 'Dedicated Financial Collections Team',
+          content: 'Our trained professionals specialize in financial collections, delivering expertise and efficiency to reduce delinquency rates.'
+        },
+      ],
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      ),
+      imageUrl: 'https://images.unsplash.com/photo-1593672715438-d88a70629abe?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+    },
   ];
 
   return (
@@ -118,17 +150,10 @@ const Services = () => {
           <div className="space-y-4">
             {service.features.map((feature, featureIndex) => (
               <div key={featureIndex} className="pl-4 border-l-2 border-wbo-blue">
-                {typeof feature === 'string' ? (
-                  <>
-                    <h4 className="font-semibold text-wbo-darkblue mb-1">{feature}</h4>
-                    <p className="text-sm text-gray-600">Comprehensive {service.title.toLowerCase()} solutions tailored to your needs.</p>
-                  </>
-                ) : (
-                  <>
-                    <h4 className="font-semibold text-wbo-darkblue mb-1">{feature.subtitle}</h4>
-                    <p className="text-sm text-gray-600">{feature.content}</p>
-                  </>
-                )}
+                <>
+                  <h4 className="font-semibold text-wbo-darkblue mb-1">{feature.subtitle}</h4>
+                  <p className="text-sm text-gray-600">{feature.content}</p>
+                </>
               </div>
             ))}
           </div>
