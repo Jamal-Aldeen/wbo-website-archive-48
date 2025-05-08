@@ -24,11 +24,11 @@ const Index = () => {
       <CoreValues />
       <GlobalPresence />
       <Leadership />
-      <BenefitsSection />
+      {/* <BenefitsSection /> */}
       <ServicesOverview />
       <Statistics />
       {/* <CoreValues /> */}
-      <Testimonials />
+      {/* <Testimonials /> */}
       <CallCenterSolutions />
       <Footer />
     </div>

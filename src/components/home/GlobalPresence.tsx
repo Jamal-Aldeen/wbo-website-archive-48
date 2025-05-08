@@ -71,7 +71,7 @@ const GlobalPresence = () => {
             </h2>
             <p className="text-gray-600">
             Global Bridge Outsourcing Solutions is a premier, global CX management company with a
-              dominant presence in Southeast Asia and expanding globally. 
+              dominant presence in Egypt and expanding globally. 
             </p>
           </motion.div>
           
@@ -99,12 +99,8 @@ const GlobalPresence = () => {
               </motion.div>
               
               {/* Animated dots for locations */}
-              {[
-                { left: '20%', top: '30%' }, 
-                { left: '30%', top: '40%' }, 
-                { left: '50%', top: '30%' },
-                { left: '70%', top: '40%' }, 
-                { left: '80%', top: '50%' }
+              {[ 
+                { left: '55%', top: '50%' }
               ].map((position, index) => (
                 <motion.div
                   key={index}
@@ -124,7 +120,7 @@ const GlobalPresence = () => {
             </div>
             
             {/* Statistics */}
-            <motion.div
+            {/* <motion.div
               ref={statsRef}
               variants={containerVariants}
               initial="hidden"
@@ -145,7 +141,7 @@ const GlobalPresence = () => {
                   <p className="text-gray-600 text-sm mt-2">{stat.label}</p>
                 </motion.div>
               ))}
-            </motion.div>
+            </motion.div> */}
           </motion.div>
         </div>
       </div>

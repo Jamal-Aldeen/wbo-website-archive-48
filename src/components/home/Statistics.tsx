@@ -152,7 +152,7 @@ const Statistics = () => {
             variants={itemVariants}
             className="text-gray-600 max-w-3xl mx-auto"
           >
-            Leading the way in Southeast Asian BPO services with measurable results and sustainable growth
+            Leading the way with measurable results and sustainable growth
           </motion.p>
         </motion.div>
 
@@ -161,23 +161,8 @@ const Statistics = () => {
           variants={containerVariants}
           initial="hidden"
           animate={isStatsInView ? 'visible' : 'hidden'}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6"
         >
-          <StatItem 
-            icon={<Users size={24} />}
-            value={1250}
-            label="Skilled Professionals"
-            delay={100}
-            progress={92}
-          />
-          <StatItem 
-            icon={<Building size={24} />}
-            value={87}
-            label="Business Partners"
-            suffix="+"
-            delay={300}
-            progress={78}
-          />
           <StatItem 
             icon={<Activity size={24} />}
             value={99.8}
@@ -188,7 +173,7 @@ const Statistics = () => {
           />
           <StatItem 
             icon={<Globe size={24} />}
-            value={15}
+            value={8}
             label="Countries Served"
             delay={700}
             progress={65}
