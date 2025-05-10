@@ -125,6 +125,9 @@ const About = () => {
                 <motion.li variants={itemVariants}>FTI Touristik</motion.li>
                 <motion.li variants={itemVariants}>CIB Bank</motion.li>
                 <motion.li variants={itemVariants}>FAB Bank</motion.li>
+                <motion.li variants={itemVariants}>Bank Audi</motion.li>
+                <motion.li variants={itemVariants}>We telecomegypt</motion.li>
+                <motion.li variants={itemVariants}>ACT</motion.li>
               </motion.ul>
               <motion.p variants={itemVariants} className="text-lg leading-relaxed">
                 We are committed to understanding your goals and providing services that truly serve your needs and ensure success.

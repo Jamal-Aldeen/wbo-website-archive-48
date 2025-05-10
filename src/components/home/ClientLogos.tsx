@@ -24,7 +24,7 @@ const ClientLogos = () => {
           viewport={{ once: true }}
           className="text-center mb-10"
         >
-          <h2 className="text-2xl font-bold text-wbo-darkblue">OUR CLIENTS</h2>
+          <h2 className="text-2xl font-bold text-wbo-darkblue">Our Expertise</h2>
         </motion.div>
         
         <motion.div 
